@@ -386,6 +386,9 @@ class Cursor:
     def __enter__(self):
         return self
 
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.close()
+
     @property
     def connection(self):
         warn("DB-API extension cursor.connection used", stacklevel=3)
