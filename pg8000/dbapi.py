@@ -2,7 +2,7 @@ from datetime import date as Date, datetime as Datetime, time as Time
 from itertools import count, islice
 from time import localtime
 from warnings import warn
-
+import io
 import pg8000
 from pg8000.converters import (
     BIGINT,
