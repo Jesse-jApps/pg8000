@@ -389,7 +389,7 @@ class Cursor:
     def __exit__(self, exc_type, exc_value, traceback):
         self.close()
 
-    def copy_expert(sql, file):
+    def copy_expert(self, sql, file):
         self.connection.run(sql, stream=file)
 
     @property
