@@ -383,6 +383,9 @@ class Cursor:
 
         self._input_oids = None
 
+    def __enter__(self):
+        return self
+
     @property
     def connection(self):
         warn("DB-API extension cursor.connection used", stacklevel=3)
