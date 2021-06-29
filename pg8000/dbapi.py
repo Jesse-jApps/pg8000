@@ -390,7 +390,13 @@ class Cursor:
         self.close()
 
     def copy_expert(self, sql, file):
-        self.execute(sql, stream=file)
+        """
+        geopandas uses stringio
+        convert it to bytesio
+        """
+        stream_in = io.BytesIO(file.read().encode('utf8'))
+        stream_in.seek(0)
+        self.execute(sql, stream=stream_in)
 
     @property
     def connection(self):
