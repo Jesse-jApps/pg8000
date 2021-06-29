@@ -389,6 +389,9 @@ class Cursor:
     def __exit__(self, exc_type, exc_value, traceback):
         self.close()
 
+    def copy_expert(sql, file):
+        self.connection.run(sql, stream=file)
+
     @property
     def connection(self):
         warn("DB-API extension cursor.connection used", stacklevel=3)
